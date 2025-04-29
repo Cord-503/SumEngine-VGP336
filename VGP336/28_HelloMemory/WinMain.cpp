@@ -95,6 +95,7 @@ int WinMain(HINSTANCE instance, HINSTANCE, LPSTR, int)
 	std::vector<Student*> students;
 
 #pragma region student
+	// test new
 	for (uint32_t i = 0; i < 100; ++i)
 	{
 		Student* student = studentPool.New();
@@ -102,6 +103,7 @@ int WinMain(HINSTANCE instance, HINSTANCE, LPSTR, int)
 		students.push_back(student);
 	}
 
+	// test deletion
 	for (uint32_t i = 0; i < 60; ++i)
 	{
 		Student* student = students.back();
@@ -109,6 +111,7 @@ int WinMain(HINSTANCE instance, HINSTANCE, LPSTR, int)
 		students.pop_back();
 	}
 
+	// test adding more
 	for (uint32_t i = 0; i < 55; ++i)
 	{
 		Student* student = studentPool.New("New_Student" + std::to_string(i));
@@ -116,6 +119,7 @@ int WinMain(HINSTANCE instance, HINSTANCE, LPSTR, int)
 		students.push_back(student);
 	}
 
+	// clear all
 	for (Student* student : students)
 	{
 		studentPool.Delete(student);
@@ -124,6 +128,8 @@ int WinMain(HINSTANCE instance, HINSTANCE, LPSTR, int)
 #pragma endregion
 
 #pragma region teacher
+	// Creating a small block and adding in more data to see its functionality
+
 	TypedAllocator teacherPool = TypedAllocator<Teacher>("TeacherPool", 10);
 	std::vector<Teacher*> teachers;
 
@@ -167,6 +173,7 @@ int WinMain(HINSTANCE instance, HINSTANCE, LPSTR, int)
 
 
 #pragma region Weapon
+	// Creating a small block and adding in more data to see its functionality
 
 	TypedAllocator weaponPool = TypedAllocator<Weapon>("WeaponPool", 30);
 	std::vector<Weapon*> weapons;
